@@ -79,9 +79,11 @@ load_vars() {
 }
 
 create_chksums() {
+    set -x
     msg2 "creating checksums for [$1]"
     sha1sum $1 > $1.sha1
     sha256sum $1 > $1.sha256
+    set +x
 }
 
 sign_with_key() {
